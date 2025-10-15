@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" type="image/x-icon" href="/icon.jpg">
+  <title>كورسات برمجه</title>
+</head>
+<body>
+  <div class="container" id="header">
+    <header>
+      <a class="logo" href="#">
+        <i class="fas fa-laptop-code"></i>
+        <span>كورساتي</span>
+      </a>
+      
+      <!-- الوضع الليلي -->
+      <label class="switch">
+        <input type="checkbox">
+        <span class="slider"></span>
+      </label>
+      
+      <!-- زر القائمة للموبايل -->
+      <div class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      
+      <nav id="navMenu">
+        <a href="#home">الرئيسية</a>
+        <a href="#courses">الكورسات</a>
+        <a href="#about">حول المنصة</a>
+        <a href="#contact">تواصل معنا</a>
+      </nav>
+    </header>
+  </div>
+
+  <div class="main" id="home">
+    <main>
+      <h1>أنضم الي مجتمعنا الرائع لجعل العالم الرقمي افضل</h1>
+      <div class="cta-button">
+        <button class="learn-more">
+          <span class="circle" aria-hidden="true">
+            <span class="icon arrow"></span>
+          </span>
+          <span class="button-text">أشترك الان</span>
+        </button>
+      </div>
+      
+      <!-- قسم تطوير الويب -->
+      <section class="category-section" id="courses">
+        <div class="category-header">
+          <div class="category-title">
+            <div class="category-icon" style="background: #3498db;">
+              <i class="fas fa-code"></i>
+            </div>
+            <h2>تطوير الويب</h2>
+          </div>
+          <div class="navigation-buttons">
+            <button class="nav-btn prev-btn" data-category="web">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+            <button class="nav-btn next-btn" data-category="web">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+          </div>
+        </div>
+        <div class="courses-container">
+          <div class="courses-track" id="webTrack">
+          </div>
+        </div>
+      </section>
+      
+      <!-- قسم تطوير التطبيقات -->
+      <section class="category-section">
+        <div class="category-header">
+          <div class="category-title">
+            <div class="category-icon" style="background: #e74c3c;">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <h2>تطوير التطبيقات</h2>
+          </div>
+          <div class="navigation-buttons">
+            <button class="nav-btn prev-btn" data-category="apps">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+            <button class="nav-btn next-btn" data-category="apps">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+          </div>
+        </div>
+        <div class="courses-container">
+          <div class="courses-track" id="appsTrack">
+          </div>
+        </div>
+      </section>
+      
+      <!-- قسم الذكاء الاصطناعي -->
+      <section class="category-section">
+        <div class="category-header">
+          <div class="category-title">
+            <div class="category-icon" style="background: #9b59b6;">
+              <i class="fas fa-robot"></i>
+            </div>
+            <h2>الذكاء الاصطناعي</h2>
+          </div>
+          <div class="navigation-buttons">
+            <button class="nav-btn prev-btn" data-category="ai">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+            <button class="nav-btn next-btn" data-category="ai">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+          </div>
+        </div>
+        <div class="courses-container">
+          <div class="courses-track" id="aiTrack">
+          </div>
+        </div>
+      </section>
+      
+      <!-- قسم قواعد البيانات -->
+      <section class="category-section">
+        <div class="category-header">
+          <div class="category-title">
+            <div class="category-icon" style="background: #2ecc71;">
+              <i class="fas fa-database"></i>
+            </div>
+            <h2>قواعد البيانات</h2>
+          </div>
+          <div class="navigation-buttons">
+            <button class="nav-btn prev-btn" data-category="database">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+            <button class="nav-btn next-btn" data-category="database">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+          </div>
+        </div>
+        <div class="courses-container">
+          <div class="courses-track" id="databaseTrack">
+          </div>
+        </div>
+      </section>
+      
+      <!-- قسم الأمن السيبراني -->
+      <section class="category-section">
+        <div class="category-header">
+          <div class="category-title">
+            <div class="category-icon" style="background: #e67e22;">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h2>الأمن السيبراني</h2>
+          </div>
+          <div class="navigation-buttons">
+            <button class="nav-btn prev-btn" data-category="security">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+            <button class="nav-btn next-btn" data-category="security">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+          </div>
+        </div>
+        <div class="courses-container">
+          <div class="courses-track" id="securityTrack">
+          </div>
+        </div>
+      </section>
+      
+      <!-- قسم حول المنصة -->
+      <section class="about-section" id="about">
+        <div class="about-content">
+          <h2>حول منصتنا</h2>
+          <p>منصة تعليمية رائدة في مجال البرمجة وتطوير الويب، نقدم أحدث الكورسات بأعلى جودة لنمكنك من دخول عالم البرمجة بثقة وقوة.</p>
+          
+          <div class="features">
+            <div class="feature">
+              <i class="fas fa-graduation-cap"></i>
+              <h3>تعلم من الخبراء</h3>
+              <p>كورسات مقدمة من مبرمجين محترفين بخبرة سنوات في المجال</p>
+            </div>
+            <div class="feature">
+              <i class="fas fa-laptop-code"></i>
+              <h3>مشاريع عملية</h3>
+              <p>تعلم من خلال تطبيقات عملية وحقيقية تناسب سوق العمل</p>
+            </div>
+            <div class="feature">
+              <i class="fas fa-users"></i>
+              <h3>مجتمع تفاعلي</h3>
+              <p>انضم إلى مجتمع من المتعلمين والمطورين لتطوير مهاراتك</p>
+            </div>
+            <div class="feature">
+              <i class="fas fa-certificate"></i>
+              <h3>شهادات معتمدة</h3>
+              <p>احصل على شهادات معترف بها في سوق العمل بعد إتمام الكورسات</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- قسم تواصل معنا -->
+      <section class="contact-section" id="contact">
+        <div class="contact-content">
+          <h2>تواصل معنا</h2>
+          
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <h3>البريد الإلكتروني</h3>
+              <p>info@courses.com</p>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <h3>الهاتف</h3>
+              <p>+20 123 456 7890</p>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <h3>العنوان</h3>
+              <p>القاهرة، مصر</p>
+            </div>
+          </div>
+
+          <form class="contact-form">
+            <div class="form-group">
+              <label for="name">الاسم الكامل</label>
+              <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">البريد الإلكتروني</label>
+              <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+              <label for="message">الرسالة</label>
+              <textarea id="message" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">إرسال الرسالة</button>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- الفوتر -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>عن المنصة</h3>
+        <p>منصة تعليمية متخصصة في تقديم كورسات البرمجة وتطوير الويب بأعلى جودة وبأسعار مناسبة للجميع.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-column">
+        <h3>روابط سريعة</h3>
+        <ul class="footer-links">
+          <li><a href="#home">الرئيسية</a></li>
+          <li><a href="#courses">الكورسات</a></li>
+          <li><a href="#about">حول المنصة</a></li>
+          <li><a href="#contact">تواصل معنا</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>الكورسات</h3>
+        <ul class="footer-links">
+          <li><a href="#">تطوير الويب</a></li>
+          <li><a href="#">تطبيقات الموبايل</a></li>
+          <li><a href="#">الذكاء الاصطناعي</a></li>
+          <li><a href="#">قواعد البيانات</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>الدعم</h3>
+        <ul class="footer-links">
+          <li><a href="#">الأسئلة الشائعة</a></li>
+          <li><a href="#">سياسة الخصوصية</a></li>
+          <li><a href="#">شروط الاستخدام</a></li>
+          <li><a href="#">الدعم الفني</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2024 منصة كورسات البرمجة. جميع الحقوق محفوظة.</p>
+      <p class="developer">developed by <a href="https://wa.me/201093270155?text=السلام+عليكم،+أنا+مهتم+بطلب+مشروع+تطوير+موقع+من+Khaled." target="_blank">khaled Adel</a></p>
+    </div>
+  </footer>
+
+  <!-- نافذة التفاصيل -->
+  <div class="overlay" id="overlay"></div>
+  <div class="course-details" id="courseDetails"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
