@@ -1,9 +1,11 @@
+/* ==================== إعادة تعيين الأنماط الافتراضية ==================== */
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* ==================== متغيرات الألوان (الوضع الفاتح) ==================== */
 :root {
   --primary-color: #005DB9;
   --secondary-color: #2667FF;
@@ -15,6 +17,7 @@
   --shadow-color: rgba(0, 0, 0, 0.1);
 }
 
+/* ==================== متغيرات الألوان (الوضع الداكن) ==================== */
 [data-theme="dark"] {
   --primary-color: #3498db;
   --secondary-color: #2980b9;
@@ -26,6 +29,7 @@
   --shadow-color: rgba(0, 0, 0, 0.3);
 }
 
+/* ==================== تنسيق الـ Body وأنيميشن التحميل ==================== */
 body{
   background-color: var(--background-color);
   color: var(--text-color);
@@ -35,13 +39,14 @@ body{
   transition: all 0.3s ease;
 }
 
+/* أنيميشن ظهور الصفحة عند التحميل */
 @keyframes pageLoad {
   to {
     opacity: 1;
   }
 }
 
-/* header */
+/* ==================== الـ Header (الرأس الثابت) ==================== */
 .container{
   width: 100%;
   height: 80px;
@@ -60,17 +65,20 @@ body{
   animation: slideDownHeader 0.8s ease 0.5s forwards;
 }
 
+/* أنيميشن نزول الـ Header من أعلى الصفحة */
 @keyframes slideDownHeader {
   to {
     transform: translateY(0);
   }
 }
 
+/* تصغير الـ Header عند السكرول */
 .container.scrolled {
   height: 70px;
   box-shadow: 0 2px 20px var(--shadow-color);
 }
 
+/* ==================== محتوى الـ Header ==================== */
 header {
   display: flex;
   justify-content: space-between;
@@ -80,6 +88,7 @@ header {
   gap: 1rem;
 }
 
+/* ==================== اللوجو ==================== */
 .logo {
   font-size: 1.8rem;
   font-weight: bold;
@@ -93,6 +102,7 @@ header {
   transition: color 0.3s ease;
 }
 
+/* أنيميشن ظهور اللوجو من اليسار */
 @keyframes fadeInLeft {
   from {
     opacity: 0;
@@ -108,9 +118,7 @@ header {
   font-size: 2rem;
 }
 
-/* زر الوضع الداكن */
-/* 🔘 الزر الخاص بالوضع الداكن الافتراضي */
-
+/* ==================== زر تبديل الوضع الداكن/الفاتح ==================== */
 .switch {
   display: flex;
   align-items: center;
@@ -125,14 +133,14 @@ header {
   margin-right: 2rem;
 }
 
-/* نخفي الـ checkbox العادي */
+/* إخفاء الـ checkbox الأصلي */
 .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-/* الخلفية العامة للزر */
+/* شكل المفتاح */
 .slider {
   position: absolute;
   cursor: pointer;
@@ -140,12 +148,12 @@ header {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #303136; /* داكن افتراضي */
+  background-color: #303136;
   transition: 0.4s ease;
   border-radius: 30px;
 }
 
-/* شكل الدائرة */
+/* أيقونة القمر (الوضع الداكن) */
 .slider:before {
   position: absolute;
   content: "";
@@ -155,24 +163,25 @@ header {
   left: calc(100% - (var(--size-of-icon) + var(--slider-offset)));
   top: 50%;
   transform: translateY(-50%);
-  background: #303136; /* قمر */
+  background: #303136;
   box-shadow: inset -3px -2px 5px -2px #8983f7,
               inset -10px -4px 0 0 #a3dafb;
   transition: 0.4s ease;
 }
 
-/* لما المستخدم يضغط، يتحول للوضع الفاتح */
+/* لون الخلفية عند التفعيل (الوضع الفاتح) */
 input:checked + .slider {
-  background-color: #f4f4f4; /* فاتح */
+  background-color: #f4f4f4;
 }
 
+/* أيقونة الشمس (الوضع الفاتح) */
 input:checked + .slider:before {
   left: var(--slider-offset);
-  background: linear-gradient(40deg, #ff0080, #ff8c00 70%); /* شمس */
+  background: linear-gradient(40deg, #ff0080, #ff8c00 70%);
   box-shadow: none;
 }
 
-/* Menu Toggle للموبايل */
+/* ==================== زر القائمة للموبايل ==================== */
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -181,6 +190,7 @@ input:checked + .slider:before {
   z-index: 1001;
 }
 
+/* خطوط الهامبرجر */
 .menu-toggle span {
   width: 25px;
   height: 3px;
@@ -189,6 +199,7 @@ input:checked + .slider:before {
   transition: all 0.3s ease;
 }
 
+/* تحويل الهامبرجر إلى X عند الفتح */
 .menu-toggle.active span:nth-child(1) {
   transform: rotate(45deg) translate(8px, 8px);
 }
@@ -201,12 +212,14 @@ input:checked + .slider:before {
   transform: rotate(-45deg) translate(7px, -7px);
 }
 
+/* ==================== قائمة التنقل ==================== */
 nav {
   display: flex;
   align-items: center;
   gap: 2.5rem;
 }
 
+/* روابط القائمة */
 nav a{
   text-decoration: none;
   font-size: 1.1rem;
@@ -219,6 +232,7 @@ nav a{
   animation: fadeInRight 1s ease 0.8s forwards;
 }
 
+/* أنيميشن ظهور الروابط من اليمين */
 @keyframes fadeInRight {
   from {
     opacity: 0;
@@ -230,15 +244,18 @@ nav a{
   }
 }
 
+/* تأخير ظهور كل رابط عن اللي قبله */
 nav a:nth-child(1) { animation-delay: 0.9s; }
 nav a:nth-child(2) { animation-delay: 1.0s; }
 nav a:nth-child(3) { animation-delay: 1.1s; }
 nav a:nth-child(4) { animation-delay: 1.2s; }
 
+/* تغيير اللون عند المرور على الرابط */
 nav a:hover{
   color: var(--secondary-color);
 }
 
+/* خط أزرق يظهر تحت الرابط عند المرور عليه */
 nav a::after {
   content: '';
   position: absolute;
@@ -254,13 +271,14 @@ nav a:hover::after {
   width: 100%;
 }
 
-/* main */
+/* ==================== القسم الرئيسي (Main) ==================== */
 .main{
   margin-top: 100px;
   text-align: center;
   padding: 20px;
 }
 
+/* العنوان الرئيسي */
 .main h1{
   font-size: 2.5rem;
   margin-bottom: 30px;
@@ -272,6 +290,7 @@ nav a:hover::after {
   animation: fadeInUp 1s ease 1s forwards;
 }
 
+/* أنيميشن ظهور العناصر من الأسفل */
 @keyframes fadeInUp {
   to {
     opacity: 1;
@@ -279,13 +298,14 @@ nav a:hover::after {
   }
 }
 
-/* زر اشترك الان - محسّن */
+/* ==================== زر "اشترك الآن" ==================== */
 .cta-button {
   margin: 30px 0 50px;
   opacity: 0;
   animation: fadeInUp 1s ease 1.2s forwards;
 }
 
+/* تنسيق الزر */
 button.learn-more {
   position: relative;
   display: inline-block;
@@ -305,6 +325,7 @@ button.learn-more {
   height: auto;
 }
 
+/* الدائرة في الزر */
 button.learn-more .circle {
   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
   position: relative;
@@ -316,6 +337,7 @@ button.learn-more .circle {
   border-radius: 1.75rem;
 }
 
+/* أيقونة السهم */
 button.learn-more .circle .icon {
   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
   position: absolute;
@@ -333,6 +355,7 @@ button.learn-more .circle .icon.arrow {
   background: none;
 }
 
+/* رأس السهم */
 button.learn-more .circle .icon.arrow::before {
   position: absolute;
   content: "";
@@ -345,8 +368,10 @@ button.learn-more .circle .icon.arrow::before {
   transform: rotate(45deg);
 }
 
+/* نص الزر */
 button.learn-more .button-text {
-  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+
+transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
   position: absolute;
   top: 0;
   left: 0;
@@ -362,25 +387,29 @@ button.learn-more .button-text {
   font-size: 0.95rem;
 }
 
+/* تأثير المرور على الزر - توسيع الدائرة */
 button.learn-more:hover .circle {
   width: 100%;
   background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
 }
 
+/* تحريك السهم عند المرور */
 button.learn-more:hover .circle .icon.arrow {
   background: #fff;
   transform: translate(1rem, 0);
 }
 
+/* تغيير لون النص عند المرور */
 button.learn-more:hover .button-text {
   color: #fff;
 }
 
+/* تصغير الزر عند الضغط */
 button.learn-more:active {
   transform: scale(0.95);
 }
 
-/* أقسام الكورسات */
+/* ==================== أقسام الكورسات ==================== */
 .category-section {
   margin: 60px auto;
   max-width: 1200px;
@@ -390,10 +419,12 @@ button.learn-more:active {
   animation: fadeInUp 1s ease forwards;
 }
 
+/* تأخير ظهور كل قسم */
 .category-section:nth-child(1) { animation-delay: 1.4s; }
 .category-section:nth-child(2) { animation-delay: 1.5s; }
 .category-section:nth-child(3) { animation-delay: 1.6s; }
 
+/* رأس القسم (العنوان + أزرار التنقل) */
 .category-header {
   display: flex;
   justify-content: space-between;
@@ -401,6 +432,7 @@ button.learn-more:active {
   margin-bottom: 30px;
 }
 
+/* عنوان القسم */
 .category-title {
   font-size: 1.8rem;
   color: var(--primary-color);
@@ -409,6 +441,7 @@ button.learn-more:active {
   gap: 15px;
 }
 
+/* أيقونة القسم */
 .category-icon {
   width: 40px;
   height: 40px;
@@ -420,12 +453,13 @@ button.learn-more:active {
   color: white;
 }
 
+/* حاوية أزرار التنقل */
 .navigation-buttons {
   display: flex;
   gap: 10px;
 }
 
-/* تحسين أزرار التنقل */
+/* أزرار التنقل (السابق/التالي) */
 .nav-btn {
   width: 45px;
   height: 45px;
@@ -442,37 +476,53 @@ button.learn-more:active {
   font-size: 1.1rem;
 }
 
+/* تأثير المرور على الأزرار */
 .nav-btn:hover {
   background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
   transform: scale(1.15) translateY(-2px);
   box-shadow: 0 6px 20px rgba(52, 152, 219, 0.5);
 }
 
+/* تصغير الزر عند الضغط */
 .nav-btn:active {
   transform: scale(0.95);
 }
 
+/* حالة الزر المعطل */
 .nav-btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
   transform: none;
 }
 
+/* ==================== حاوية الكورسات (مع تفعيل السوايب لجميع الشاشات) ==================== */
 .courses-container {
   position: relative;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  margin: 0 -5px;
+  padding: 0 5px;
 }
 
+/* إخفاء الـ scrollbar في جميع المتصفحات */
+.courses-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* مسار الكورسات */
 .courses-track {
   display: flex;
   gap: 25px;
-  transition: transform 0.5s ease;
   padding: 10px 5px;
+  width: max-content;
 }
 
-/* تصميم الكروت مع أنيميشن محسّن */
+/* ==================== كارت الكورس ==================== */
 .course-card {
   width: 280px;
+  min-width: 280px;
   background: var(--card-bg);
   border-radius: 15px;
   box-shadow: 0 8px 25px var(--shadow-color);
@@ -488,6 +538,7 @@ button.learn-more:active {
   animation: cardAppear 0.6s ease forwards;
 }
 
+/* أنيميشن ظهور الكارت */
 @keyframes cardAppear {
   to {
     opacity: 1;
@@ -495,12 +546,14 @@ button.learn-more:active {
   }
 }
 
+/* تأثير المرور على الكارت */
 .course-card:hover {
   transform: translateY(-15px) scale(1.03);
   box-shadow: 0 20px 40px var(--shadow-color);
   border-color: #3498db;
 }
 
+/* صورة الكورس */
 .course-image {
   width: 100%;
   height: 150px;
@@ -516,6 +569,7 @@ button.learn-more:active {
   position: relative;
 }
 
+/* تأثير الجراديانت على الصورة */
 .course-image::before {
   content: '';
   position: absolute;
@@ -528,6 +582,7 @@ button.learn-more:active {
   transition: opacity 0.3s ease;
 }
 
+/* تكبير الصورة عند المرور */
 .course-card:hover .course-image {
   transform: scale(1.1) rotate(2deg);
 }
@@ -536,6 +591,7 @@ button.learn-more:active {
   opacity: 1;
 }
 
+/* عنوان الكورس */
 .course-title {
   font-size: 1.3rem;
   font-weight: 700;
@@ -545,10 +601,12 @@ button.learn-more:active {
   transition: color 0.3s ease;
 }
 
+/* تغيير لون العنوان عند المرور */
 .course-card:hover .course-title {
   color: #3498db;
 }
 
+/* معلومات الكورس (التقييم والسعر) */
 .course-info {
   display: flex;
   justify-content: space-between;
@@ -556,22 +614,26 @@ button.learn-more:active {
   margin-bottom: 15px;
 }
 
+/* تقييم الكورس */
 .course-rating {
   display: flex;
   align-items: center;
 }
 
+/* النجوم */
 .stars {
   color: #FFD700;
   margin-left: 5px;
 }
 
+/* قيمة التقييم */
 .rating-value {
   font-weight: 600;
   color: var(--text-color);
   font-size: 0.9rem;
 }
 
+/* السعر */
 .course-price {
   font-size: 1.3rem;
   font-weight: 700;
@@ -579,11 +641,12 @@ button.learn-more:active {
   transition: transform 0.3s ease;
 }
 
+/* تكبير السعر عند المرور */
 .course-card:hover .course-price {
   transform: scale(1.1);
 }
 
-/* تحسين زر اشتري الآن */
+/* ==================== زر الشراء ==================== */
 .buy-btn {
   background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
   color: white;
@@ -603,6 +666,7 @@ button.learn-more:active {
   box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
 }
 
+/* تأثير الموجة عند المرور */
 .buy-btn::before {
   content: '';
   position: absolute;
@@ -621,16 +685,19 @@ button.learn-more:active {
   height: 300px;
 }
 
+/* رفع الزر عند المرور */
 .buy-btn:hover {
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 8px 25px rgba(52, 152, 219, 0.5);
   background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
 }
 
+/* تصغير الزر عند الضغط */
 .buy-btn:active {
   transform: translateY(-1px) scale(0.98);
 }
 
+/* أيقونة السهم في الزر */
 .buy-btn i {
   margin-left: 8px;
   transition: transform 0.3s ease;
@@ -638,16 +705,18 @@ button.learn-more:active {
   z-index: 1;
 }
 
+/* تحريك السهم عند المرور */
 .buy-btn:hover i {
   transform: translateX(-3px);
 }
 
+/* نص الزر */
 .buy-btn span {
   position: relative;
   z-index: 1;
 }
 
-/* قسم حول المنصة */
+/* ==================== قسم "حول المنصة" ==================== */
 .about-section {
   background: linear-gradient(135deg, #7CA3FF 0%, #C9D9FF 100%);
   margin: 80px 0;
@@ -680,6 +749,7 @@ button.learn-more:active {
   margin-right: auto;
 }
 
+/* مميزات المنصة */
 .features {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -687,6 +757,7 @@ button.learn-more:active {
   margin-top: 40px;
 }
 
+/* كل ميزة */
 .feature {
   background: var(--card-bg);
   padding: 25px;
@@ -698,11 +769,13 @@ button.learn-more:active {
   animation: featureAppear 0.6s ease forwards;
 }
 
+/* تأخير ظهور كل ميزة */
 .feature:nth-child(1) { animation-delay: 1.9s; }
 .feature:nth-child(2) { animation-delay: 2.0s; }
 .feature:nth-child(3) { animation-delay: 2.1s; }
 .feature:nth-child(4) { animation-delay: 2.2s; }
 
+/* أنيميشن ظهور الميزة */
 @keyframes featureAppear {
   to {
     opacity: 1;
@@ -710,22 +783,26 @@ button.learn-more:active {
   }
 }
 
+/* رفع الميزة عند المرور */
 .feature:hover {
   transform: translateY(-8px);
 }
 
+/* أيقونة الميزة */
 .feature i {
   font-size: 2.5rem;
   color: #3498db;
   margin-bottom: 15px;
 }
 
+/* عنوان الميزة */
 .feature h3 {
   font-size: 1.3rem;
   color: var(--text-color);
   margin-bottom: 12px;
 }
 
+/* وصف الميزة */
 .feature p {
   font-size: 0.9rem;
   color: #7f8c8d;
@@ -733,7 +810,7 @@ button.learn-more:active {
   margin-bottom: 0;
 }
 
-/* قسم تواصل معنا */
+/* ==================== قسم "تواصل معنا" ==================== */
 .contact-section {
   background: var(--card-bg);
   margin: 80px 0;
@@ -757,6 +834,7 @@ button.learn-more:active {
   margin-bottom: 40px;
 }
 
+/* معلومات الاتصال */
 .contact-info {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -764,6 +842,7 @@ button.learn-more:active {
   margin-bottom: 40px;
 }
 
+/* كل عنصر اتصال */
 .contact-item {
   text-align: center;
   padding: 25px;
@@ -775,10 +854,12 @@ button.learn-more:active {
   animation: contactItemAppear 0.6s ease forwards;
 }
 
+/* تأخير ظهور كل عنصر */
 .contact-item:nth-child(1) { animation-delay: 2.5s; }
 .contact-item:nth-child(2) { animation-delay: 2.6s; }
 .contact-item:nth-child(3) { animation-delay: 2.7s; }
 
+/* أنيميشن ظهور عنصر الاتصال */
 @keyframes contactItemAppear {
   to {
     opacity: 1;
@@ -786,27 +867,32 @@ button.learn-more:active {
   }
 }
 
+/* رفع العنصر عند المرور */
 .contact-item:hover {
   transform: translateY(-5px);
 }
 
+/* أيقونة الاتصال */
 .contact-item i {
   font-size: 2.2rem;
   color: #3498db;
   margin-bottom: 15px;
 }
 
+/* عنوان عنصر الاتصال */
 .contact-item h3 {
   font-size: 1.2rem;
   color: var(--text-color);
   margin-bottom: 10px;
 }
 
+/* معلومات الاتصال */
 .contact-item p {
   font-size: 0.9rem;
   color: #7f8c8d;
 }
 
+/* ==================== نموذج الاتصال ==================== */
 .contact-form {
   max-width: 500px;
   margin: 0 auto;
@@ -815,10 +901,12 @@ button.learn-more:active {
   animation: fadeInUp 1s ease 2.8s forwards;
 }
 
+/* مجموعة الحقل */
 .form-group {
   margin-bottom: 20px;
 }
 
+/* تسمية الحقل */
 .form-group label {
   display: block;
   margin-bottom: 8px;
@@ -827,6 +915,7 @@ button.learn-more:active {
   font-size: 0.9rem;
 }
 
+/* حقول الإدخال */
 .form-group input,
 .form-group textarea {
   width: 100%;
@@ -839,17 +928,20 @@ button.learn-more:active {
   color: var(--text-color);
 }
 
+/* تأثير التركيز على الحقول */
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
   border-color: #3498db;
 }
 
+/* منطقة النص */
 .form-group textarea {
   height: 120px;
   resize: vertical;
 }
 
+/* زر الإرسال */
 .submit-btn {
   background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
   color: white;
@@ -862,12 +954,13 @@ button.learn-more:active {
   transition: all 0.3s ease;
 }
 
+/* تأثير المرور على زر الإرسال */
 .submit-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
 }
 
-/* الفوتر */
+/* ==================== الفوتر (التذييل) ==================== */
 footer {
   background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
   color: white;
@@ -877,6 +970,7 @@ footer {
   animation: fadeInUp 1s ease 3s forwards;
 }
 
+/* محتوى الفوتر */
 .footer-content {
   max-width: 1200px;
   margin: 0 auto;
@@ -886,17 +980,20 @@ footer {
   margin-bottom: 30px;
 }
 
+/* عمود في الفوتر */
 .footer-column {
   opacity: 0;
   transform: translateY(20px);
   animation: footerColumnAppear 0.6s ease forwards;
 }
 
+/* تأخير ظهور كل عمود */
 .footer-column:nth-child(1) { animation-delay: 3.1s; }
 .footer-column:nth-child(2) { animation-delay: 3.2s; }
 .footer-column:nth-child(3) { animation-delay: 3.3s; }
 .footer-column:nth-child(4) { animation-delay: 3.4s; }
 
+/* أنيميشن ظهور عمود الفوتر */
 @keyframes footerColumnAppear {
   to {
     opacity: 1;
@@ -904,12 +1001,14 @@ footer {
   }
 }
 
+/* عنوان العمود */
 .footer-column h3 {
   font-size: 1.3rem;
   margin-bottom: 20px;
   color: white;
 }
 
+/* فقرة في العمود */
 .footer-column p {
   line-height: 1.6;
   margin-bottom: 15px;
@@ -917,6 +1016,7 @@ footer {
   font-size: 0.9rem;
 }
 
+/* قائمة الروابط في الفوتر */
 .footer-links {
   list-style: none;
 }
@@ -925,6 +1025,7 @@ footer {
   margin-bottom: 10px;
 }
 
+/* روابط الفوتر */
 .footer-links a {
   color: #EFF7FF;
   text-decoration: none;
@@ -932,16 +1033,19 @@ footer {
   font-size: 0.9rem;
 }
 
+/* تغيير لون الرابط عند المرور */
 .footer-links a:hover {
   color: #FFD700;
 }
 
+/* روابط التواصل الاجتماعي */
 .social-links {
   display: flex;
   gap: 12px;
   margin-top: 15px;
 }
 
+/* أيقونة التواصل الاجتماعي */
 .social-links a {
   display: flex;
   align-items: center;
@@ -955,11 +1059,13 @@ footer {
   transition: all 0.3s ease;
 }
 
+/* تأثير المرور على أيقونة التواصل */
 .social-links a:hover {
   background: #3498db;
   transform: translateY(-2px);
 }
 
+/* أسفل الفوتر (الحقوق) */
 .footer-bottom {
   text-align: center;
   padding-top: 25px;
@@ -970,17 +1076,19 @@ footer {
   animation: fadeInUp 1s ease 3.5s forwards;
 }
 
+/* معلومات المطور */
 .developer {
   margin-top: 10px;
   font-size: 0.8rem;
 }
 
+/* رابط المطور */
 .developer a {
   color: #FFD700;
   text-decoration: none;
 }
 
-/* نافذة التفاصيل - مصغرة */
+/* ==================== نافذة تفاصيل الكورس المنبثقة ==================== */
 .course-details {
   background: var(--card-bg);
   border-radius: 15px;
@@ -996,11 +1104,13 @@ footer {
   display: none;
 }
 
+/* إظهار النافذة عند التفعيل */
 .course-details.active {
   display: block;
   animation: popIn 0.3s ease;
 }
 
+/* أنيميشن ظهور النافذة المنبثقة */
 @keyframes popIn {
   from {
     opacity: 0;
@@ -1012,12 +1122,14 @@ footer {
   }
 }
 
+/* رأس نافذة التفاصيل */
 .details-header {
   display: flex;
   align-items: center;
   margin-bottom: 15px;
 }
 
+/* صورة الكورس في النافذة */
 .details-image {
   width: 70px;
   height: 70px;
@@ -1030,12 +1142,14 @@ footer {
   margin-left: 15px;
 }
 
+/* عنوان الكورس في النافذة */
 .details-title {
   font-size: 1.2rem;
   color: var(--text-color);
   margin-bottom: 8px;
 }
 
+/* معلومات الكورس في النافذة */
 .details-info {
   display: flex;
   gap: 15px;
@@ -1043,6 +1157,7 @@ footer {
   flex-wrap: wrap;
 }
 
+/* التقييم والسعر في النافذة */
 .details-rating, .details-price {
   display: flex;
   align-items: center;
@@ -1051,6 +1166,7 @@ footer {
   font-size: 0.8rem;
 }
 
+/* وصف الكورس */
 .details-description {
   color: #7f8c8d;
   line-height: 1.5;
@@ -1058,6 +1174,7 @@ footer {
   font-size: 0.85rem;
 }
 
+/* مميزات الكورس في النافذة */
 .details-features {
   display: grid;
   grid-template-columns: 1fr;
@@ -1065,6 +1182,7 @@ footer {
   margin-bottom: 15px;
 }
 
+/* كل ميزة في النافذة */
 .details-features .feature {
   display: flex;
   align-items: center;
@@ -1075,6 +1193,7 @@ footer {
   animation: none;
 }
 
+/* أيقونة الميزة في النافذة */
 .details-features .feature i {
   color: #3498db;
   margin-left: 8px;
@@ -1082,11 +1201,13 @@ footer {
   margin-bottom: 0;
 }
 
+/* أزرار الإجراءات في النافذة */
 .details-actions {
   display: flex;
   gap: 10px;
 }
 
+/* زر في نافذة التفاصيل */
 .details-btn {
   padding: 8px 16px;
   border-radius: 20px;
@@ -1098,22 +1219,26 @@ footer {
   flex: 1;
 }
 
+/* الزر الأساسي */
 .primary-btn {
   background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
   color: white;
 }
 
+/* الزر الثانوي */
 .secondary-btn {
   background: transparent;
   border: 2px solid #3498db;
   color: #3498db;
 }
 
+/* تأثير المرور على أزرار النافذة */
 .details-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* زر إغلاق النافذة */
 .close-details {
   position: absolute;
   top: 10px;
@@ -1132,6 +1257,7 @@ footer {
   z-index: 1001;
 }
 
+/* طبقة التعتيم خلف النافذة */
 .overlay {
   position: fixed;
   top: 0;
@@ -1143,18 +1269,21 @@ footer {
   display: none;
 }
 
+/* إظهار طبقة التعتيم */
 .overlay.active {
   display: block;
   animation: fadeIn 0.3s ease;
 }
 
+/* أنيميشن ظهور التعتيم */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 
-/* التجاوب مع الشاشات الصغيرة */
+/* ==================== التجاوب مع الشاشات الصغيرة (الموبايل) ==================== */
 @media (max-width: 768px) {
+  /* تصغير الـ Header */
   .container {
     padding: 0 1rem;
     height: 70px;
@@ -1164,6 +1293,7 @@ footer {
     padding: 0 1rem;
   }
 
+  /* تصغير اللوجو */
   .logo {
     font-size: 1.4rem;
   }
@@ -1172,16 +1302,17 @@ footer {
     font-size: 1.6rem;
   }
 
+  /* تقليل المسافة حول زر الوضع الداكن */
   .switch {
     margin-right: 1rem;
   }
 
-  /* إظهار زر القائمة */
+  /* إظهار زر القائمة للموبايل */
   .menu-toggle {
     display: flex;
   }
 
-  /* إخفاء القائمة وإظهارها عند الطلب */
+  /* تحويل القائمة لقائمة منسدلة */
   nav {
     position: fixed;
     top: 70px;
@@ -1199,12 +1330,14 @@ footer {
     pointer-events: none;
   }
 
+  /* إظهار القائمة عند الفتح */
   nav.active {
     transform: translateY(0);
     opacity: 1;
     pointer-events: all;
   }
 
+  /* تنسيق روابط القائمة في الموبايل */
   nav a {
     width: 100%;
     padding: 15px 20px;
@@ -1219,25 +1352,30 @@ footer {
     border-bottom: none;
   }
 
+  /* إخفاء الخط السفلي */
   nav a::after {
     display: none;
   }
 
+  /* تأثير المرور على الروابط */
   nav a:hover {
     background: var(--background-color);
     color: var(--secondary-color);
   }
 
+  /* تقليل المسافة العلوية للمحتوى الرئيسي */
   .main {
     margin-top: 90px;
     padding: 15px;
   }
 
+  /* تصغير العنوان الرئيسي */
   .main h1 {
     font-size: 1.6rem;
     margin-bottom: 20px;
   }
 
+  /* تصغير زر اشترك الآن */
   button.learn-more {
     width: 12rem;
   }
@@ -1252,11 +1390,13 @@ footer {
     padding: 0.7rem 0;
   }
 
+  /* تقليل المسافات في أقسام الكورسات */
   .category-section {
     margin: 40px auto;
     padding: 0 15px;
   }
 
+  /* ترتيب رأس القسم */
   .category-header {
     flex-direction: row;
     gap: 10px;
@@ -1264,142 +1404,182 @@ footer {
     flex-wrap: wrap;
   }
 
+  /* تصغير عنوان القسم */
   .category-title {
     font-size: 1.3rem;
     flex: 1;
   }
 
+/* تصغير أيقونة القسم */
   .category-icon {
     width: 35px;
     height: 35px;
     font-size: 1rem;
   }
 
+  /* تقليل المسافة بين أزرار التنقل */
   .navigation-buttons {
     gap: 8px;
   }
 
+  /* تصغير أزرار التنقل */
   .nav-btn {
     width: 40px;
     height: 40px;
     font-size: 1rem;
   }
 
+  /* تفعيل السوايب في الموبايل */
   .courses-container {
     margin: 0 -15px;
     padding: 0 15px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  
+  .courses-container::-webkit-scrollbar {
+    display: none;
   }
 
+  /* ضبط مسار الكورسات */
   .courses-track {
-    gap: 15px;
-    padding: 10px 0;
+    gap: 12px;
+    padding: 8px 0;
+    flex-wrap: nowrap;
+    width: max-content;
   }
 
+  /* تصغير كارت الكورس */
   .course-card {
-    width: 260px;
-    padding: 18px;
+    width: 220px;
+    min-width: 220px;
+    padding: 15px;
+    flex-shrink: 0;
   }
 
+  /* تصغير صورة الكورس */
   .course-image {
-    height: 140px;
-    font-size: 2.5rem;
+    height: 100px;
+    font-size: 2rem;
   }
 
+  /* تصغير عنوان الكورس */
   .course-title {
-    font-size: 1.15rem;
+    font-size: 1rem;
     margin-bottom: 10px;
   }
 
+  /* ضبط معلومات الكورس */
   .course-info {
     margin-bottom: 12px;
     flex-wrap: wrap;
     gap: 8px;
   }
 
+  /* تصغير التقييم */
   .course-rating {
     font-size: 0.85rem;
   }
 
+  /* تصغير السعر */
   .course-price {
     font-size: 1.15rem;
   }
 
+  /* تصغير زر الشراء */
   .buy-btn {
     padding: 10px 18px;
     font-size: 0.9rem;
   }
 
+  /* تقليل المسافات في قسم حول المنصة */
   .about-section {
     margin: 50px 0;
     padding: 40px 15px;
   }
 
+  /* تصغير عناوين الأقسام */
   .about-section h2,
   .contact-section h2 {
     font-size: 1.6rem;
     margin-bottom: 20px;
   }
 
+  /* تصغير النصوص */
   .about-section p {
     font-size: 1rem;
     margin-bottom: 25px;
   }
 
+  /* جعل المميزات عمود واحد */
   .features {
     grid-template-columns: 1fr;
     gap: 20px;
   }
 
+  /* تقليل padding الميزة */
   .feature {
     padding: 20px;
   }
 
+  /* تصغير أيقونة الميزة */
   .feature i {
     font-size: 2rem;
   }
 
+  /* تصغير عنوان الميزة */
   .feature h3 {
     font-size: 1.1rem;
   }
 
+  /* تقليل المسافات في قسم الاتصال */
   .contact-section {
     margin: 50px 0;
     padding: 40px 15px;
   }
 
+  /* جعل معلومات الاتصال عمود واحد */
   .contact-info {
     grid-template-columns: 1fr;
     gap: 20px;
     margin-bottom: 30px;
   }
 
+  /* تقليل padding عنصر الاتصال */
   .contact-item {
     padding: 20px;
   }
 
+  /* إضافة padding للنموذج */
   .contact-form {
     padding: 0 10px;
   }
 
+  /* تقليل المسافة بين الحقول */
   .form-group {
     margin-bottom: 15px;
   }
 
+  /* جعل أعمدة الفوتر عمود واحد */
   .footer-content {
     grid-template-columns: 1fr;
     text-align: center;
     gap: 25px;
   }
 
+  /* توسيط الروابط الاجتماعية */
   .social-links {
     justify-content: center;
   }
 
+  /* تصغير عناوين الفوتر */
   .footer-column h3 {
     font-size: 1.2rem;
     margin-bottom: 15px;
   }
 
+  /* تصغير نافذة التفاصيل */
   .course-details {
     max-width: 90%;
     padding: 18px;
@@ -1407,11 +1587,13 @@ footer {
     overflow-y: auto;
   }
 
+  /* ترتيب رأس التفاصيل عمودياً */
   .details-header {
     flex-direction: column;
     text-align: center;
   }
 
+  /* ضبط صورة التفاصيل */
   .details-image {
     width: 60px;
     height: 60px;
@@ -1420,39 +1602,47 @@ footer {
     margin-bottom: 12px;
   }
 
+  /* تصغير عنوان التفاصيل */
   .details-title {
     font-size: 1.1rem;
   }
 
+  /* توسيط معلومات التفاصيل */
   .details-info {
     justify-content: center;
     font-size: 0.75rem;
   }
 
+  /* تصغير وصف التفاصيل */
   .details-description {
     font-size: 0.8rem;
     margin-bottom: 12px;
   }
 
+  /* تقليل المسافة بين المميزات */
   .details-features {
     gap: 6px;
     margin-bottom: 12px;
   }
 
+  /* تصغير نص المميزات */
   .details-features .feature {
     font-size: 0.75rem;
   }
 
+  /* جعل الأزرار عمودية */
   .details-actions {
     flex-direction: column;
     gap: 8px;
   }
 
+  /* ضبط أزرار التفاصيل */
   .details-btn {
     padding: 10px 18px;
     font-size: 0.85rem;
   }
 
+  /* تكبير زر الإغلاق */
   .close-details {
     width: 28px;
     height: 28px;
@@ -1460,28 +1650,35 @@ footer {
   }
 }
 
-/* شاشات صغيرة جداً */
+/* ==================== شاشات صغيرة جداً (أقل من 480px) ==================== */
 @media (max-width: 480px) {
+  /* تصغير العنوان الرئيسي أكثر */
   .main h1 {
     font-size: 1.4rem;
   }
 
+  /* تصغير زر اشترك الآن أكثر */
   button.learn-more {
     width: 11rem;
   }
 
+  /* تصغير عنوان القسم أكثر */
   .category-title {
     font-size: 1.15rem;
   }
 
+  /* تصغير كارت الكورس أكثر */
   .course-card {
-    width: 240px;
+    width: 200px;
+    min-width: 200px;
   }
 
+  /* تصغير عنوان الكورس أكثر */
   .course-title {
     font-size: 1.05rem;
   }
 
+  /* تصغير أزرار التنقل أكثر */
   .nav-btn {
     width: 36px;
     height: 36px;
