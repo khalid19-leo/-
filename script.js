@@ -230,11 +230,45 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  // ==================== تعطيل أزرار التقليب (تم إلغاء الوظيفة) ====================
-  // هذه الدالة معطلة ولا تفعل شيء - الكروت تعمل بالسوايب فقط
+  // ==================== أزرار التقليب (تعمل على الشاشات الكبيرة فقط) ====================
   function setupNavigation() {
-    // تم إلغاء وظيفة أزرار التقليب
-    // الكروت الآن تعمل بالسوايب اليدوي فقط
+    document.querySelectorAll('.nav-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        // التحقق من حجم الشاشة - الأزرار تعمل فقط على الشاشات أكبر من 768px
+        if (window.innerWidth <= 768) {
+          return; // لا تفعل شيء على الموبايل - السوايب يشتغل
+        }
+        
+        const category = this.dataset.category;
+        const container = document.getElementById(`${category}Track`).parentElement;
+        const track = document.getElementById(`${category}Track`);
+        const isNext = this.classList.contains('next-btn');
+        
+        // حساب عرض الكارت + المسافة
+        const cardWidth = 280 + 25;
+        const containerWidth = container.offsetWidth;
+        const scrollAmount = Math.floor(containerWidth / cardWidth) * cardWidth;
+        
+        // الحصول على موضع السكرول الحالي
+        const currentScroll = container.scrollLeft;
+        const maxScroll = track.scrollWidth - container.offsetWidth;
+        
+        // التقليب حسب الاتجاه
+        if (isNext) {
+          const newScroll = Math.min(currentScroll + scrollAmount, maxScroll);
+          container.scrollTo({
+            left: newScroll,
+            behavior: 'smooth'
+          });
+        } else {
+          const newScroll = Math.max(currentScroll - scrollAmount, 0);
+          container.scrollTo({
+            left: newScroll,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
   }
   
   // ==================== إظهار تفاصيل الكورس ====================
@@ -345,7 +379,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // ==================== تشغيل الدوال الأساسية ====================
   createCourseCards();
-  setupNavigation(); // معطلة - لا تفعل شيء
+  setupNavigation(); // تعمل على الشاشات الكبيرة فقط
 });
 
 // ==================== تفعيل الوضع الداكن/الفاتح ====================
